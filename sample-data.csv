@@ -1,0 +1,6 @@
+user_id,username,email,registration_date,last_login,status
+1001,alice_smith,alice@example.com,2023-01-15,2024-05-26 09:30:00,active
+1002,bob_jones,bob@example.com,2023-02-20,2024-05-25 14:22:15,active
+1003,carol_brown,carol@example.com,2023-03-10,2024-05-24 08:45:30,inactive
+1004,david_wilson,david@example.com,2023-04-05,2024-05-26 16:15:45,active
+1005,eva_garcia,eva@example.com,2023-05-12,2024-05-23 11:30:20,suspended

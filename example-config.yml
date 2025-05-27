@@ -1,0 +1,47 @@
+# Embulk Multi Output Plugin - 実使用例
+# データを複数の形式で同時出力
+
+in:
+  type: file
+  path_prefix: sample-data
+  parser:
+    type: csv
+    columns:
+      - { name: user_id, type: long }
+      - { name: username, type: string }
+      - { name: email, type: string }
+      - { name: registration_date, type: timestamp, format: '%Y-%m-%d' }
+      - { name: last_login, type: timestamp, format: '%Y-%m-%d %H:%M:%S' }
+      - { name: status, type: string }
+    skip_header_lines: 1
+
+out:
+  type: multi
+  outputs:
+    # コンソール出力（デバッグ用）
+    - type: stdout
+    
+    # CSV形式での出力
+    - type: file
+      path_prefix: output/users_backup
+      file_ext: csv
+      formatter:
+        type: csv
+        header_line: true
+        quote_policy: MINIMAL
+    
+    # JSON Lines形式での出力（API連携用）
+    - type: file
+      path_prefix: output/users_api
+      file_ext: jsonl
+      formatter:
+        type: jsonl
+    
+    # TSV形式での出力（分析ツール用）
+    - type: file
+      path_prefix: output/users_analysis
+      file_ext: tsv
+      formatter:
+        type: csv
+        delimiter: "\t"
+        header_line: true
