@@ -4,6 +4,8 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.embulk.config.TaskReport;
 import org.embulk.config.TaskSource;
 import org.embulk.spi.OutputPlugin;
+import org.embulk.util.config.TaskMapper;
+import org.embulk.util.config.ConfigMapperFactory;
 
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -17,6 +19,8 @@ import java.util.concurrent.Future;
 
 class AsyncRunControl {
     private static final String THREAD_NAME_FORMAT = "multi-run-control-%d";
+    private static final ConfigMapperFactory CONFIG_MAPPER_FACTORY = ConfigMapperFactory.builder().addDefaultModules().build();
+    
     private final MultiOutputPlugin.PluginTask task;
     private final OutputPlugin.Control control;
     private final CountDownLatch latch;
