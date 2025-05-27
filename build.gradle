@@ -66,39 +66,6 @@ embulkPlugin {
     type = "multi"
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = project.group
-            artifactId = project.name
-
-            from components.java
-            
-            pom {
-                name = "embulk-output-multi"
-                description = "Dump records into multiple outputs"
-                url = "https://github.com/kamatama41/embulk-output-multi"
-                licenses {
-                    license {
-                        name = "MIT License"
-                        url = "http://www.opensource.org/licenses/mit-license.php"
-                    }
-                }
-                developers {
-                    developer {
-                        name = "Shinichi ISHIMURA"
-                        email = "shiketaudonko41@gmail.com"
-                    }
-                }
-                scm {
-                    connection = "scm:git:git://github.com/kamatama41/embulk-output-multi.git"
-                    developerConnection = "scm:git:git@github.com:kamatama41/embulk-output-multi.git"
-                    url = "https://github.com/kamatama41/embulk-output-multi"
-                }
-            }
-        }
-    }
-}
 
 // release plugin設定は廃止
 // gemPushは新しいプラグイン形式では使わないので削除
