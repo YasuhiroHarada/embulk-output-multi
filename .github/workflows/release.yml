@@ -94,16 +94,14 @@ jobs:
         body: |
           ## Changes in this Release
           
-          * Plugin for Embulk ${{ steps.extract_version.outputs.VERSION }}
           * Compatible with Embulk 0.10.43+
           * Requires Java 11+
           
           ## Installation
-          
           Download the JAR file and copy it to your Embulk lib directory, or see INSTALL.md for detailed instructions.
-          
+
           ## Files Included
-          
+
           * `embulk-output-multi-${{ steps.extract_version.outputs.VERSION }}.jar` - Main plugin JAR
           * `embulk-output-multi-${{ steps.extract_version.outputs.VERSION }}-sources.jar` - Source code
           * `embulk-output-multi-${{ steps.extract_version.outputs.VERSION }}-javadoc.jar` - API documentation
